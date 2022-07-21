@@ -2,9 +2,13 @@ import React from "react";
 import style from './Card.module.scss'
 
 
-const Card = ({name, price, imageUrl, onPlus}) => {
+
+
+
+const Card = ({name, price, imageUrl, onPlus, onFavorite, favorited, removeFavorite,id}) => {
+
   const [add, setAdd] = React.useState(false)
-  const [like, setLike] = React.useState(false)
+  const [like, setLike] = React.useState(favorited)
 
   const onClickAdd = () => {
     onPlus({name, price, imageUrl})
@@ -13,11 +17,9 @@ const Card = ({name, price, imageUrl, onPlus}) => {
 
   const onClickFavorite = () => {
     setLike(!like)
+    onFavorite({name, price, imageUrl, id})
+    removeFavorite({name, price, imageUrl, id})
   }
-  // React.useEffect(() => {
-  //   console.log('Состояние кнопок изменилось');
-  // }, [add, like])
-
   
     return(
         <div className={style.card}>

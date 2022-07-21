@@ -1,10 +1,16 @@
 import style from './Search.module.scss'
 
-const Search = () => {
+const Search = (props) => {
+
+    const onInputChange = (e) => {
+        const text = e.target.value
+        props.input(text)
+    }
+
     return(
         <div className={style.search_block}>
             <img src="/img/search.svg" alt="search"/>
-            <input placeholder="Поиск..."/>
+            <input onChange ={onInputChange} value ={props.value} placeholder="Поиск..."/>
         </div>
     )
 }

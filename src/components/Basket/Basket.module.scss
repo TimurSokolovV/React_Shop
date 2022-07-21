@@ -38,9 +38,10 @@
  
    .basket_items{
     overflow: auto;
-    flex: 1;
+    height: 400px;
    }
     ul{
+
         margin-top: 40px;
         li{
             display: flex;
@@ -83,3 +84,4 @@
     }
   
 }
+
