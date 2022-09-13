@@ -10,7 +10,7 @@ const BasketElem = (props) => {
                     <h5>{props.name}</h5>
                     <span>{props.price} руб.</span>
                 </div>
-                <button onClick={() => {props.removeElem(props.id)}} ><img className={style.remove_btn} width={32} height={32} src="/img/btn-remove.svg" alt="remove"/></button>
+                <button onClick={() => {props.removeElem(props.currId, props.id)}} ><img className={style.remove_btn} width={32} height={32} src="/img/btn-remove.svg" alt="remove"/></button>
             </div>
             <div>
           

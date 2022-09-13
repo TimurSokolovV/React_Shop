@@ -1,7 +1,13 @@
+import React from 'react'
+import AppContext from '../../context'
 import style from './Header.module.scss'
 
 
 const Header = (props) => {
+  const {basketItems} = React.useContext(AppContext)
+  const totalPrice = basketItems.reduce((acc, el) => {
+    return el.price + acc
+  }, 0)
     return(
         <header className={style.header}>
         <div onClick={props.onFavoriteClose} className={style.header_left}>
@@ -18,7 +24,7 @@ const Header = (props) => {
             </li>
             <li onClick={props.onBasketOpen}>
             <img width={24} height = {24} src="/img/buy.png"/>
-              <span>1205 руб.</span>
+              <span>{totalPrice} руб</span>
             </li>
             <li>
             <img width={24} height = {24} src="/img/user.png"/>
